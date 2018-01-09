@@ -1,4 +1,4 @@
-# vue-maoyan1
+# maoy-vue
 
 > A Vue.js project
 

@@ -1,8 +1,8 @@
 {
-  "name": "vue-maoyan1",
+  "name": "maoy-vue",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "'xieshiCoder' <'13233076263@163.com'>",
+  "author": "xieshicoder <13233076263@163.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

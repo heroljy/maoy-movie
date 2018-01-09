@@ -1,6 +1,6 @@
 {
-  "name": "vue-maoyan1",
-  "short_name": "vue-maoyan1",
+  "name": "maoy-vue",
+  "short_name": "maoy-vue",
   "icons": [
     {
       "src": "/static/img/icons/android-chrome-192x192.png",
