@@ -1,49 +1,22 @@
 {
-  "name": "maoy-spider",
-  "description": "application created by thinkjs",
+  "name": "demo",
   "version": "1.0.0",
-  "author": "xieshicoder <13233076263@163.com>",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "node development.js",
-    "compile": "npm run lint && tsc",
-    "lint": "tslint \"src/**/*.ts\""
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "bstart": "tsc && node dist/app.js",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "think-cache": "^1.0.7",
-    "think-cache-file": "^1.0.8",
-    "think-model": "^1.1.5",
-    "think-model-mysql": "^1.0.0",
-    "think-session": "^1.0.3",
-    "think-session-file": "^1.0.5",
-    "think-view": "^1.0.11",
-    "think-view-nunjucks": "^1.0.1",
-    "thinkjs": "^3.2.3"
+    "express": "^4.16.2"
   },
   "devDependencies": {
-    "typescript": "^2.5.3",
-    "@types/koa": "*",
-    "node-notifier": "^5.0.2",
-    "think-watcher": "^3.0.0",
-    "think-inspect": "0.0.2",
-    "think-typescript": "^1.0.4",
-    "tslint": "^5.8.0"
-  },
-  "repository": "",
-  "license": "MIT",
-  "engines": {
-    "node": ">=6.0.0"
-  },
-  "readmeFilename": "README.md",
-  "thinkjs": {
-    "metadata": {
-      "name": "maoy-spider",
-      "description": "application created by thinkjs",
-      "author": "xieshicoder <13233076263@163.com>"
-    },
-    "projectName": "maoy-spider",
-    "templateName": "typescript",
-    "cacheTemplatePath": "/Users/xieshi/.think-templates/typescript",
-    "clone": false,
-    "isMultiModule": false
+    "@types/express": "^4.0.39",
+    "log4js": "^2.3.11",
+    "tslint-consistent-codestyle": "^1.9.1"
   }
 }
