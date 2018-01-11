@@ -14,6 +14,6 @@ app.get("/", (req, res) => {
 });
 
 const server = app.listen(3000, "localhost", () => {
-    log.info("address:", server.address().address + ':' + server.address().port);
+    log.info('http://' + server.address().address + ':' + server.address().port);
     log.info("Express server listening on port ", server.address().port, " with pid ", process.pid );
 });
