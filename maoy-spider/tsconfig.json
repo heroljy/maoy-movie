@@ -56,7 +56,7 @@
 {
 "compileOnSave": false,
 "compilerOptions": {
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "dist",
     "target": "es5",
     "module": "commonjs"
