@@ -4,7 +4,7 @@ import * as http from 'http';
 /**
  * 爬虫公共类
  */
-export class Spider {
+export class SpiderUtil {
     constructor() {
 
     }

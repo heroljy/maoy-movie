@@ -54,12 +54,14 @@
 //  }
 //}
 {
-"compileOnSave": false,
-"compilerOptions": {
+    "compileOnSave": false,
+    "compilerOptions": {
     "sourceMap": false,
     "outDir": "dist",
     "target": "es5",
     "module": "commonjs",
-    "lib": ["ES2015"]
+    "lib": ["es6","es2015"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
 }
 }
