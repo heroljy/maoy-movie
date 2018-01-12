@@ -30,11 +30,15 @@ export class SpiderUtil {
      * @description 通过post请求获取json数据
      * @param url--地址 
      * @param data--表单数据
+     * @param refer--来源
      */
-    public getJson(url: string, data: object) {
+    public getJson(url: string, data: object, referer: object): Promise<string>{
         var promise = new Promise<string>((resolve, reject) => {
-            superagent.post(url)
-            .set('User-Agent','Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36')
+            const superr = superagent.post(url);
+            if(referer){
+                superr.set(referer);
+            }
+            superr.set('User-Agent','Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36')
             .set('Content-Type', 'application/x-www-form-urlencoded')
             .send(data)
             .end((err, res) => {

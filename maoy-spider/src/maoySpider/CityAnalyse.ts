@@ -11,8 +11,8 @@ export class CityAnalyse{
     constructor(){    
     }
     public analyseCitys(): Promise<City[]>{
-        let cities:City[] = [];
         const promise = new Promise<City[]>((resolve,reject) => {
+            let cities:City[] = [];
             FileUtil.readFile(__dirname + '/cities.json').then(data => {
                 const cityJson = JSON.parse(data);
                 for(let key in cityJson.citys){
