@@ -4,10 +4,11 @@ import * as express from "express";
 import * as log4js from "log4js";
 import * as path from "path";
 import * as errorHandler from "errorhandler";
-
+import * as helmet from "helmet";
 import { IndexRoute } from "./routes/index";
 
 /**
+
  * The server.
  *
  * @class Server
@@ -83,7 +84,7 @@ export class Server {
     this.app.use(bodyParser.urlencoded({
       extended: true
     }));
-
+    this.app.use(helmet());
     //mount cookie parser middleware
     this.app.use(cookieParser("SECRET_GOES_HERE"));
 
@@ -113,6 +114,6 @@ export class Server {
 
     //use router middleware
     this.app.use(router);
-  }
+    }
 
 }
