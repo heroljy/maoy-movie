@@ -5,6 +5,9 @@ export class City {
     id: number;
 
     @Column({type:'varchar'})
+    cityId: string;
+
+    @Column({type:'varchar'})
     pinyin: string;
     
     @Column({type:'varchar'})

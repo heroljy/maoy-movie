@@ -34,6 +34,7 @@ export class CityAnalyse{
                     cc.map(c => {
                         let city = new City();
                         city.name = c.name;
+                        city.cityId = c.id;
                         city.pinyin = c.pinyin;
                         city.rank = c.rank;
                         city.acronym = c.acronym;
