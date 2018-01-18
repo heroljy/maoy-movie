@@ -1,6 +1,8 @@
 import { Server } from "../src/server";
 import * as log4js from "log4js";
 import {CityAnalyse} from "../src/maoySpider/CityAnalyse";
+import {CinemaSpider} from "../src/maoySpider/CinemaSpider";
+import {FilmSpider} from "../src/maoySpider/FilmSpider";
 import {createConnection} from "typeorm";
 
 
@@ -27,6 +29,8 @@ createConnection({
     // new CityAnalyse().saveCitys().then(data => {
     //     logger.info(data);
     // })
+    // new CinemaSpider().saveCitys();
+    new FilmSpider().readFilms();
 }).catch((error) => {
     logger.error("Database connection failure："+error);
 });
