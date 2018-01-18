@@ -30,7 +30,7 @@ createConnection({
     //     logger.info(data);
     // })
     // new CinemaSpider().saveCitys();
-    new FilmSpider().readFilms();
+    // new FilmSpider().readFilms();
 }).catch((error) => {
     logger.error("Database connection failure："+error);
 });
