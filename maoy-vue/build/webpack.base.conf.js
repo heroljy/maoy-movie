@@ -4,12 +4,8 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
-
-module.exports = {
+const vuxLoader = require('vux-loader')
+const webpackConfig = {
   entry: {
     app: './src/main.js'
   },
@@ -24,7 +20,9 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      '~': resolve('src/components/pages'),
+      '#': resolve('src/components/common'),
     }
   },
   module: {
@@ -74,4 +72,20 @@ module.exports = {
       }
     ]
   }
+}
+
+module.exports = vuxLoader.merge(webpackConfig, {
+  plugins: [
+    {
+      name:'vux-ui'
+    },
+    {
+      name: 'less-theme',
+      path: 'src/styles/theme.less'
+    }
+  ]
+})
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
 }
