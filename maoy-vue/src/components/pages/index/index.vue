@@ -8,9 +8,14 @@
       <!-- <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon> -->
     </x-header>
     <div>
-      <tab>
-        <tab-item>影片</tab-item>
-        <tab-item selected>影院</tab-item>
+      <tab @changeIndex='changeIndex'>
+        <tab-item selected @itemClick='itemClick'>影片</tab-item>
+        <tab-item @itemClick='itemClick'>影院</tab-item>
+        <tab-item @itemClick='itemClick'>影院</tab-item>
+        <tab-item @itemClick='itemClick'>影院</tab-item>
+        <tab-item @itemClick='itemClick'>影院</tab-item>
+        <tab-item @itemClick='itemClick'>影院</tab-item>
+        <tab-item @itemClick='itemClick'>影院</tab-item>
       </tab>
     </div>
   </div>
@@ -30,6 +35,14 @@ export default {
     XHeader,
     Tab,
     TabItem
+  },
+  methods: {
+    changeIndex (oldVal, newVal) {
+      // console.log('oldVal = ' + oldVal + '        newVal = ' + newVal)
+    },
+    itemClick (val) {
+      // console.log(val)
+    }
   }
 }
 </script>

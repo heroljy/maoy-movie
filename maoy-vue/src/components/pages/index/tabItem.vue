@@ -7,16 +7,20 @@
 export default {
   data () {
     return {
-      currentIndex: -1
+      currentIndex: -1,
+      currentSelected: this.selected
     }
   },
   props: {
     selected: Boolean
   },
+  mounted () {
+    this.$parent.updateIndex()
+  },
   computed: {
     classes () {
       return {
-        '.tab-current': this.currentIndex === this.$parent.currentIndex
+        'tab-current': this.currentIndex === this.$parent.value
       }
     },
     styles () {
@@ -26,6 +30,18 @@ export default {
           lineHeight: `${this.$parent.height}px`
         }
       }
+    }
+  },
+  watch: {
+    selected (val) {
+      this.currentSelected = val
+    }
+  },
+  methods: {
+    onItemClick () {
+      this.currentSelected = true
+      this.$parent.value = this.currentIndex
+      this.$emit('itemClick', this.currentIndex)
     }
   }
 }
