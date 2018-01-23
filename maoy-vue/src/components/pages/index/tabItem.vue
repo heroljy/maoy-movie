@@ -1,30 +1,32 @@
 <template>
-  <div class="my-tab-item" :class="{'my-tab-item-sel':selected}" @click="selected=!selected">
+  <a href="javascript:void(0)" class="my-tab-item" :class="classes" :style="styles" @click="onItemClick">
     <slot></slot>
-  </div>
+  </a>
 </template>
 <script>
 export default {
+  data () {
+    return {
+      currentIndex: -1
+    }
+  },
   props: {
     selected: Boolean
   },
-  mounted () {
-    // console.log(this.$parent)
-    this.$parent.updateIndex()
+  computed: {
+    classes () {
+      return {
+        '.tab-current': this.currentIndex === this.$parent.currentIndex
+      }
+    },
+    styles () {
+      if (this.$parent.height) {
+        return {
+          height: `${this.$parent.height}px`,
+          lineHeight: `${this.$parent.height}px`
+        }
+      }
+    }
   }
 }
 </script>
-<style lang="less" scoped>
-  .my-tab-item{
-    flex: 1;
-    text-align: center;
-    line-height: 40px;
-    font-size: 13px;
-    border-bottom: 4px solid #ccc;
-    color:#000;
-  }
-  .my-tab-item-sel{
-    border-bottom-color: @dialog-button-text-warn-color;
-    color: @dialog-button-text-warn-color
-  }
-</style>
