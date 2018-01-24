@@ -89,7 +89,7 @@ export default {
     bottom: -3px;
     height: 3px;
     background: red;
-    transition: left .2s ease-in;
+    transition: left .3s ease-in;
   }
 }
 </style>
