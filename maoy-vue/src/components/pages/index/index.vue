@@ -1,12 +1,5 @@
 <template>
   <div id='index'>
-    <x-header>
-      <span>猫眼电影</span>
-      <div slot="overwrite-left">
-        <div class='nav-item-dropdown city'>{{city}}</div>
-      </div>
-      <!-- <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon> -->
-    </x-header>
     <div>
       <tab @changeIndex='changeIndex'>
         <tab-item selected @itemClick='itemClick'>影片</tab-item>
@@ -22,7 +15,6 @@
 </template>
 
 <script>
-import { XHeader } from 'vux'
 import TabItem from './tabItem'
 import Tab from './tab'
 export default {
@@ -32,7 +24,6 @@ export default {
     }
   },
   components: {
-    XHeader,
     Tab,
     TabItem
   },

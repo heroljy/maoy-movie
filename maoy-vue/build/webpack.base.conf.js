@@ -5,7 +5,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const vuxLoader = require('vux-loader')
-const webpackConfig = {
+module.exports = {
   entry: {
     app: './src/main.js'
   },
@@ -73,19 +73,6 @@ const webpackConfig = {
     ]
   }
 }
-
-module.exports = vuxLoader.merge(webpackConfig, {
-  plugins: [
-    {
-      name:'vux-ui'
-    },
-    {
-      name: 'less-theme',
-      path: 'src/styles/theme.less'
-    }
-  ]
-})
-
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
