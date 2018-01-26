@@ -15,11 +15,11 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "amfe-flexible": "^2.2.1",
     "lib-flexible": "^0.3.2",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "vue": "^2.5.2",
+    "vue-awesome": "^2.3.4",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
@@ -85,7 +85,6 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.2",
-    "vux-loader": "^1.1.31",
     "webpack": "^3.7.1",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-middleware": "^1.12.0",

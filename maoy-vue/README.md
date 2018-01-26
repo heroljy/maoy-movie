@@ -26,6 +26,13 @@ npm run e2e
 # run all tests
 npm test
 ```
+## scss+flexible实现H5页面的终端适配
+> - 引包
+```
+    npm install sass -S
+    npm install node-sass -S
+    npm install amfe-flexible -S
+```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 

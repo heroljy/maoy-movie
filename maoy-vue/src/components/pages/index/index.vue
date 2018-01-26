@@ -1,5 +1,8 @@
 <template>
   <div id='index'>
+    <m-header>
+      <span>猫眼电影</span>
+    </m-header>
     <div>
       <tab @changeIndex='changeIndex'>
         <tab-item selected @itemClick='itemClick'>影片</tab-item>
@@ -10,6 +13,7 @@
 </template>
 
 <script>
+import MHeader from './mHeader'
 import TabItem from './tabItem'
 import Tab from './tab'
 export default {
@@ -19,6 +23,7 @@ export default {
     }
   },
   components: {
+    MHeader,
     Tab,
     TabItem
   },
