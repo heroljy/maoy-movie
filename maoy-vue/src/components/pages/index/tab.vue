@@ -24,8 +24,8 @@ export default {
       old > -1 && this.$children[old] && (this.$children[old].currentSelected = false)
       newVal > -1 && this.$children[newVal] && (this.$children[newVal].currentSelected = true)
       this.slideStyle = {
-        width: 100 / this.$children.length + '%',
-        left: (100 / this.$children.length * this.value) + '%'
+        width: (100 / this.$children.length - 6) + '%',
+        left: (100 / this.$children.length * this.value + 3) + '%'
       }
       this.$emit('changeIndex', old, newVal)// 通知父组件值改变了
     }
@@ -42,8 +42,8 @@ export default {
         }
       }
       this.slideStyle = {
-        width: 100 / children.length + '%',
-        left: (100 / children.length * this.value) + '%'
+        width: (100 / children.length - 6) + '%',
+        left: (100 / children.length * this.value + 3) + '%'
       }
     }
   }
@@ -66,7 +66,7 @@ export default {
     width: 100%;
     height: px2rem(72);
     padding: 0;
-    font-size: px2rem(30);
+    font-size: px2rem(26);
     line-height: px2rem(72);
     text-align: center;
     color:#000;

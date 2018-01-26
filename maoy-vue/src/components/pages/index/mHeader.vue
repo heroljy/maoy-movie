@@ -36,9 +36,12 @@
         background: #e54847;
         .header-left,.header-right{
             flex: 1;
+            font-size: px2rem(30);
+            left: px2rem(32);
+            padding-left: px2rem(32);
         }
         .header-title{
-            flex: 2;
+            flex: 6;
             text-align: center;
             font-size: px2rem(36)
         }

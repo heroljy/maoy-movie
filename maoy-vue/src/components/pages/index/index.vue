@@ -1,6 +1,9 @@
 <template>
   <div id='index'>
     <m-header>
+      <span slot="overwrite-left" class="city">
+        北京
+      </span>
       <span>猫眼电影</span>
     </m-header>
     <div>
@@ -38,20 +41,22 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import 'src/assets/scss/functions.scss';
   .city{
-    color: #fff;
-  }
-  .city:after{
-    content: '';
+    position: relative;
     display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 4px;
-    border-width: 4px;
-    border-color: #fff transparent transparent;
-    border-style: solid;
-    font-size: 0;
-    vertical-align: -2px;
+    &:after{
+      content: '';
+      position: absolute;
+      top: px2rem(45);
+      right: px2rem(-25);
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-width: px2rem(9);
+      border-color: #fff transparent transparent;
+      border-style: solid;
+    }
   }
 </style>
