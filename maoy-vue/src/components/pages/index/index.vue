@@ -4,11 +4,6 @@
       <tab @changeIndex='changeIndex'>
         <tab-item selected @itemClick='itemClick'>影片</tab-item>
         <tab-item @itemClick='itemClick'>影院</tab-item>
-        <tab-item @itemClick='itemClick'>影院</tab-item>
-        <tab-item @itemClick='itemClick'>影院</tab-item>
-        <tab-item @itemClick='itemClick'>影院</tab-item>
-        <tab-item @itemClick='itemClick'>影院</tab-item>
-        <tab-item @itemClick='itemClick'>影院</tab-item>
       </tab>
     </div>
   </div>

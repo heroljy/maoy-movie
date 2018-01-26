@@ -8,7 +8,7 @@ export default {
 
 }
 </script>
-<style lang="less">
+<style>
     *{
         margin: 0;
         padding: 0;

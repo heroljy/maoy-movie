@@ -49,47 +49,36 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="scss">
+@import 'src/assets/scss/functions.scss'; 
 .my-tab{
   -webkit-touch-callout: none;
   position: relative;
   display: flex;
-  border-bottom: 3px solid #DDD8CE;
-  & > a.tab-current{
+  border-bottom: px2rem(7) solid #DDD8CE;
+  a.tab-current{
     color: #e54847;
-    // &:after{
-    //   background: #e54847;
-    // }
   }
-  & > a{
+  a{
     display: block;
     position: relative;
     flex: 1;
     width: 100%;
-    height: 35px;
+    height: px2rem(72);
     padding: 0;
-    font-size: 14px;
-    line-height: 36px;
+    font-size: px2rem(30);
+    line-height: px2rem(72);
     text-align: center;
     color:#000;
     white-space: nowrap;
     -webkit-tap-highlight-color: rgba(255,0,0,0);
-    // &:after{
-    //   content: "";
-    //   position: absolute;
-    //   bottom: 0;
-    //   left: 0;
-    //   height: 3px;
-    //   width: 100%;
-    //   background: #DDD8CE;
-    // }
   }
-  & > .slide{
+  .slide{
     position: absolute;
-    bottom: -3px;
-    height: 3px;
+    bottom: px2rem(-7);
+    height: px2rem(7);
     background: red;
-    transition: left .3s ease-in;
+    transition: left .2s ease-in;
   }
 }
 </style>
