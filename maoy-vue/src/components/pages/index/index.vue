@@ -2,7 +2,7 @@
   <div id='index'>
     <m-header>
       <span slot="overwrite-left" class="city">
-        北京
+        {{city}}
       </span>
       <span>猫眼电影</span>
     </m-header>
@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import MHeader from './mHeader'
-import TabItem from './tabItem'
-import Tab from './tab'
+import MHeader from '#/header/mHeader'
+import TabItem from '#/tab/tabItem'
+import Tab from '#/tab/tab'
 export default {
   data () {
     return {
