@@ -2,7 +2,7 @@
     <div class="my-header">
         <div class="header-left">
             <slot name='overwrite-left'>
-
+                <a @click.preventDefault @click="onClickBack">back</a>
             </slot>
         </div>
         <div class="header-title">
@@ -18,13 +18,34 @@
     </div>
 </template>
 <script>
-    export default {
-      data () {
-        return {
-    
-        }
+import _assign from 'lodash/assign'
+export default {
+  data () {
+    return {
+
+    }
+  },
+  props: {
+    leftOptions: Object
+  },
+  computed: {
+    _leftOptions () {
+      return _assign({
+        showBack: true,
+        preventGoBack: false
+      }, this.leftOptions || {})
+    }
+  },
+  methods: {
+    onClickBack () {
+      if (this._leftOptions.preventGoBack) {
+        this.$emit('on-click-back')
+      } else {
+        this.$router ? this.$router.back() : window.history.back()
       }
     }
+  }
+}
 </script>
 <style lang="scss">
 @import 'src/assets/scss/functions.scss';

@@ -1,9 +1,7 @@
 <template>
   <div id='index'>
     <m-header>
-      <span slot="overwrite-left" class="city">
-        {{city}}
-      </span>
+      <span slot="overwrite-left" class="city" @click="selCity">{{city}}</span>
       <span>猫眼电影</span>
     </m-header>
     <div>
@@ -36,6 +34,9 @@ export default {
     },
     itemClick (val) {
       // console.log(val)
+    },
+    selCity () {
+      this.$router.push('/city')
     }
   }
 }

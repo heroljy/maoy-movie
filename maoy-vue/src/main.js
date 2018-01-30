@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import 'lib-flexible'
 import Icon from 'vue-awesome/components/Icon'
-import 'vue-awesome/icons/sort-desc'
+
 Vue.component('icon', Icon)
 
 Vue.config.productionTip = false
