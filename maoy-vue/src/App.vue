@@ -17,4 +17,7 @@ export default {
     a{
         text-decoration: none
     }
+    ol,ul,li{
+        list-style: none;
+    }
 </style>

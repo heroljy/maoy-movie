@@ -4,7 +4,7 @@
       <span slot="overwrite-left" class="city" @click="selCity">{{city}}</span>
       <span>猫眼电影</span>
     </m-header>
-    <div>
+    <div class="index-tab">
       <tab @changeIndex='changeIndex'>
         <tab-item selected @itemClick='itemClick'>影片</tab-item>
         <tab-item @itemClick='itemClick'>影院</tab-item>
@@ -59,5 +59,10 @@ export default {
       border-color: #fff transparent transparent;
       border-style: solid;
     }
+  }
+  .index-tab{
+    position: absolute;
+    top: px2rem(101);
+    width: 100%;
   }
 </style>

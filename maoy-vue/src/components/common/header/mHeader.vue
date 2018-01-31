@@ -2,7 +2,8 @@
     <div class="my-header">
         <div class="header-left">
             <slot name='overwrite-left'>
-                <a @click.preventDefault @click="onClickBack">back</a>
+                <div @click.preventDefault @click="onClickBack">
+                </div>
             </slot>
         </div>
         <div class="header-title">
@@ -54,12 +55,32 @@ export default {
         line-height: px2rem(101);
         color: #fff; 
         display:flex;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
         background: #e54847;
         .header-left,.header-right{
             flex: 1;
             font-size: px2rem(30);
             left: px2rem(32);
             padding-left: px2rem(32);
+        }
+        .header-left div{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            &:after{
+                content: "";
+                position: absolute;
+                left: 0;
+                top: px2rem(30);
+                width: px2rem(30);
+                height: px2rem(30);
+                border: px2rem(4) solid #fff;
+                border-width: px2rem(4) 0 0 px2rem(4);
+                transform: rotate(315deg);
+            }
         }
         .header-title{
             flex: 6;

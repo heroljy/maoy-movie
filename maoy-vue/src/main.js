@@ -7,7 +7,6 @@ import 'lib-flexible'
 import Icon from 'vue-awesome/components/Icon'
 
 Vue.component('icon', Icon)
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

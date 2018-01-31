@@ -15,6 +15,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "lib-flexible": "^0.3.2",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
