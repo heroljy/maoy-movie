@@ -4,15 +4,15 @@
           <span>切换城市</span>
         </m-header>
       <div class="city-picker">
-        <section class="city-area" v-for="data in citydatas">
-          <div class="city-area-header" @click="data.show = !data.show">
+        <section class="city-area" v-for="(data,index) in citydatas">
+          <div class="city-area-header" @click="cityShow(index)">
             <span>{{data.header}}</span>
-            <span class="angle-down"></span>
+            <span class="angle-down" :class="{'angle-up':currentIndex === index}"></span>
           </div>
-          <transition name="custom-classes-transition"
+          <transition name="city-area-transition"
             enter-active-class="animated fadeInLeft"
-            leave-active-class="animated fadeOutRight">
-          <ul class="city-area-items" v-if="data.show">
+              v-on:before-enter="beforeEnter">
+          <ul class="city-area-items" v-if="currentIndex === index">
             <li v-for="city in data.cities" @click="goIndex(data)">{{city}}</li>
           </ul>
           </transition>
@@ -25,34 +25,35 @@ import MHeader from '#/header/mHeader'
 export default {
   data () {
     return {
+      currentIndex: 0,
       citydatas: [
-        {header: '热门城市', show: true, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'A', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'B', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'C', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'D', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'E', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'F', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'G', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'H', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'I', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'J', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'K', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'L', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'M', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'N', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'O', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'P', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'Q', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'R', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'S', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'T', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'U', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'V', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'W', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'X', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'Y', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
-        {header: 'Z', show: false, cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']}
+        {header: '热门城市', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'A', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'B', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'C', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'D', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'E', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'F', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'G', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'H', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'I', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'J', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'K', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'L', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'M', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'N', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'O', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'P', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'Q', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'R', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'S', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'T', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'U', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'V', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'W', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'X', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'Y', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
+        {header: 'Z', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']}
       ]
     }
   },
@@ -65,6 +66,18 @@ export default {
   methods: {
     goIndex (data) {
       console.log(data)
+    },
+    cityShow (index) {
+      if (this.currentIndex === index) {
+        this.currentIndex = -1
+      } else {
+        this.currentIndex = index
+      }
+    },
+    beforeEnter (el) {
+      if (this.currentIndex > 0) {
+        scrollTo(0, (this.currentIndex * 83 / 75 * this.$root.$options.fontSize))
+      }
     }
   }
 }
@@ -76,7 +89,6 @@ export default {
   width: 100%;
   top: px2rem(101);
   .city-area{
-    font-weight: bold;
     .city-area-header{
       height: px2rem(83);
       line-height: px2rem(83);
@@ -84,6 +96,7 @@ export default {
       font-size: px2rem(30);
       padding-left: px2rem(30);
       position: relative;
+      font-weight: bold;
       .angle-down{
         position: absolute;
         right: px2rem(64);
@@ -100,6 +113,16 @@ export default {
           border: px2rem(4) solid #ccc;
           border-width: px2rem(4) 0 0 px2rem(4);
         }
+      }
+      .angle-up:after{
+          content: "";
+          position: absolute;
+          top: px2rem(34);
+          width: px2rem(17);
+          height: px2rem(17);
+          transform: rotate(-315deg);
+          border: px2rem(4) solid #ccc;
+          border-width: px2rem(4) 0 0 px2rem(4);
       }
     }
     .city-area-items{

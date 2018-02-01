@@ -9,10 +9,13 @@ import Icon from 'vue-awesome/components/Icon'
 Vue.component('icon', Icon)
 Vue.config.productionTip = false
 
+let rootFontSize = document.getElementsByTagName('html')[0].style.fontSize
+rootFontSize = rootFontSize.substr(0, rootFontSize.length - 2)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  fontSize: rootFontSize
 })

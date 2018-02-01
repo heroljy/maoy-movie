@@ -10,6 +10,19 @@
         <tab-item @itemClick='itemClick'>影院</tab-item>
       </tab>
     </div>
+    <section class="index-main">
+      <section class="film-area">
+        <film :film-data='filmData'></film>
+        <film :film-data='filmData'></film>
+        <film :film-data='filmData'></film>
+        <film :film-data='filmData'></film>
+        <film :film-data='filmData'></film>
+        <film :film-data='filmData'></film>
+      </section>
+      <section class="cinema-area">
+
+      </section>
+    </section>
   </div>
 </template>
 
@@ -17,16 +30,19 @@
 import MHeader from '#/header/mHeader'
 import TabItem from '#/tab/tabItem'
 import Tab from '#/tab/tab'
+import Film from './film'
 export default {
   data () {
     return {
-      city: '北京'
+      city: '北京',
+      filmData: {filmName: '移动迷宫3：死亡解药', filmType: '动作,惊悚,科幻', filmActors: '主演:迪伦·奥布莱恩,卡雅·斯考达里奥,托马斯·桑斯特', filmCurrent: '今天181家影院放映1452场'}
     }
   },
   components: {
     MHeader,
     Tab,
-    TabItem
+    TabItem,
+    Film
   },
   methods: {
     changeIndex (oldVal, newVal) {
@@ -61,8 +77,13 @@ export default {
     }
   }
   .index-tab{
-    position: absolute;
+    position: relative;
     top: px2rem(101);
     width: 100%;
+  }
+  .index-main{
+    position: relative;
+    top: px2rem(101);
+    padding: 0 px2rem(24);
   }
 </style>
