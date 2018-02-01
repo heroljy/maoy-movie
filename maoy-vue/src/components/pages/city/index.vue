@@ -4,7 +4,7 @@
           <span>切换城市</span>
         </m-header>
       <div class="city-picker">
-        <section class="city-area" v-for="(data,index) in citydatas">
+        <section class="city-area" v-for="(data,index) in citydatas" :key="data.header">
           <div class="city-area-header" @click="cityShow(index)">
             <span>{{data.header}}</span>
             <span class="angle-down" :class="{'angle-up':currentIndex === index}"></span>
@@ -13,7 +13,7 @@
             enter-active-class="animated fadeInLeft"
               v-on:before-enter="beforeEnter">
           <ul class="city-area-items" v-if="currentIndex === index">
-            <li v-for="city in data.cities" @click="goIndex(data)">{{city}}</li>
+            <li v-for="city in data.cities" @click="goIndex(data)"  :key="city">{{city}}</li>
           </ul>
           </transition>
         </section>
@@ -65,7 +65,6 @@ export default {
   },
   methods: {
     goIndex (data) {
-      console.log(data)
     },
     cityShow (index) {
       if (this.currentIndex === index) {
