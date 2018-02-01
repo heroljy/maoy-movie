@@ -104,13 +104,15 @@ export default {
     }
   }
   .index-tab{
-    position: relative;
+    position: fixed;
+    z-index: 999;
     top: px2rem(101);
     width: 100%;
+    background: #fff;
   }
   .index-main{
     position: relative;
-    top: px2rem(101);
+    top: px2rem(202);
     .film-area{
       padding: 0 px2rem(24);
     }
