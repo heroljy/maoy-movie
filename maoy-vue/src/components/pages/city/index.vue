@@ -25,7 +25,7 @@ import MHeader from '#/header/mHeader'
 export default {
   data () {
     return {
-      currentIndex: 0,
+      currentIndex: -1,
       citydatas: [
         {header: '热门城市', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
         {header: 'A', cities: ['北京', '上海', '广州', '青岛', '深圳', '三亚', '重庆', '成都']},
@@ -60,8 +60,8 @@ export default {
   components: {
     MHeader
   },
-  computed: {
-
+  mounted () {
+    this.currentIndex = 0
   },
   methods: {
     goIndex (data) {
