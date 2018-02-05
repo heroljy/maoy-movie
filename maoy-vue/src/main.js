@@ -4,9 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'lib-flexible'
-import Icon from 'vue-awesome/components/Icon'
-
-Vue.component('icon', Icon)
+import store from './store'
 Vue.config.productionTip = false
 
 let rootFontSize = document.getElementsByTagName('html')[0].style.fontSize
@@ -15,6 +13,7 @@ rootFontSize = rootFontSize.substr(0, rootFontSize.length - 2)
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App },
   fontSize: rootFontSize

@@ -6,18 +6,18 @@
     </m-header>
     <div class="index-tab">
       <tab @changeIndex='changeIndex'>
-        <tab-item selected @itemClick='itemClick'>影片</tab-item>
-        <tab-item @itemClick='itemClick'>影院</tab-item>
+        <tab-item :selected='currentIndex===0' @itemClick='itemClick'>影片</tab-item>
+        <tab-item :selected='currentIndex===1' @itemClick='itemClick'>影院</tab-item>
       </tab>
     </div>
     <section class="index-main">
       <transition name="city-area-transition" enter-active-class="animated fadeInLeft">
-        <section class="film-area" v-if="selItem === 0">
+        <section class="film-area" v-if="currentIndex === 0">
           <film v-for='data in filmData' :film-data='data'></film>
         </section>
       </transition>
       <transition name="city-area-transition" enter-active-class="animated fadeInRight">
-        <section class="cinema-area" v-if="selItem === 1">
+        <section class="cinema-area" v-if="currentIndex === 1">
           <cinema v-for='data in cinemas' :cinema-data='data'></cinema>
         </section>
       </transition>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import MHeader from '#/header/mHeader'
 import TabItem from '#/tab/tabItem'
 import Tab from '#/tab/tab'
@@ -51,7 +53,6 @@ export default {
         {score: '7.5', status: 0, imgUrl: '//p1.meituan.net/movie/efb0a5e3989f45c4f3e22108bcc27ed71037307.jpg.webp@128w_180h', filmName: '唐人街探案2', filmType: '喜剧,动作,悬疑', filmActors: '主演:王宝强,刘昊然,肖央', filmCurrent: '2018-02-16上映'},
         {score: '7.5', status: 0, imgUrl: '//p0.meituan.net/movie/bfd371ed5c7290ca47a41e45e36dfe43963033.jpg.webp@128w_180h', filmName: '西游记女儿国', filmType: '喜剧,爱情,动作', filmActors: '主演:郭富城,冯绍峰,赵丽颖', filmCurrent: '2018-02-16上映'}
       ],
-      selItem: -1,
       cinemas: [
         {name: '万画影城(四季青店)', lowPrice: '33', address: '海淀区西四环北路金四季购物中心中段三层B003', distance: '900m', tags: ['座', 'IMAX厅']},
         {name: '万画影城(四季青店)', lowPrice: '33', address: '海淀区西四环北路金四季购物中心中段三层B003', distance: '1.2km', tags: ['座', '杜比全景声厅']},
@@ -61,8 +62,10 @@ export default {
       ]
     }
   },
-  mounted () {
-    this.selItem = 0
+  computed: {
+    ...mapGetters([
+      'currentIndex'
+    ])
   },
   components: {
     MHeader,
@@ -76,7 +79,7 @@ export default {
       // console.log('oldVal = ' + oldVal + '        newVal = ' + newVal)
     },
     itemClick (val) {
-      this.selItem = val
+      this.$store.dispatch('SET_INDEX', val)
     },
     selCity () {
       this.$router.push('/city')
