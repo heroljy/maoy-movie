@@ -16,6 +16,7 @@ export class SpiderUtil {
         var promise = new Promise<superagent.Response>((resolve, reject) => {
             superagent.get(url)
             .set('User-Agent','Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36')
+            .set('Referer','http://m.maoyan.com/city?_v_=yes')
             .end((err, res) => {
                 if(!err){
                     resolve(res);

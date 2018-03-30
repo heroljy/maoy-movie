@@ -5,8 +5,8 @@ export class Actor{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type:'varchar'})
-    filmId: string;
+    @Column({type:'int'})
+    filmId: number;
     
     @Column({type:'varchar'})
     realName: string;

@@ -17,10 +17,12 @@ export class Cinema {
     @Column({type: "double"})
     lng: number;
 
-    
     @Column({type: "varchar"})
     price: string;
     
     @Column({type: "varchar"})
     labels: string;
+
+    @Column({type: "int"})
+    cityId: number;
 }

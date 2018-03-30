@@ -38,8 +38,12 @@ export class Film{
     @Column({type:'varchar'})
     releaseTime: string; // 大陆上映时间
 
-    @Column({type:'varchar'})
+    @Column({type:'varchar',length:4000})
     desc: string; // 电影描述
     
+    @Column({type:'varchar'})
+    url: string; // 真实地址
 
+    @Column({type:'varchar'})
+    tags: string; // 标签
 }
